@@ -181,6 +181,21 @@ pass `timeout=` (seconds or an `httpx.Timeout`) and `max_retries=` to change the
 The SDK sends no telemetry. Each request carries `x-webcite-surface: sdk-python` and a
 `webcite-python/<version>` user agent, which Webcite stores as labels only.
 
+## Use with agent frameworks
+
+Short runnable examples are in [`examples/frameworks/`](examples/frameworks):
+
+| Framework | File | How it connects |
+|---|---|---|
+| LangChain | `langchain_agent.py` | [`langchain-webcite`](https://github.com/strategyconnect/langchain-webcite) tools and retriever |
+| Haystack | `haystack_pipeline.py` | [`webcite-haystack`](https://github.com/strategyconnect/webcite-haystack) components |
+| CrewAI | `crewai_mcp.py` | Hosted MCP server |
+| Google ADK | `google_adk_mcp.py` | Hosted MCP server through `McpToolset` |
+| OpenAI Agents SDK | `openai_agents_mcp.py` | Hosted MCP server through `MCPServerStreamableHttp` |
+| Pydantic AI | `pydantic_ai_mcp.py` | Hosted MCP server through `MCPToolset` |
+
+The MCP examples list the Webcite tools without calling a model when run with no arguments.
+
 ## Links
 
 - API documentation: https://webcite.co/api-docs (each page has a Markdown copy)

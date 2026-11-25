@@ -61,6 +61,8 @@ ignore = ["UP006", "UP007", "UP035", "UP045"]
 python_version = "3.9"
 strict = true
 files = ["src/webcite", "tests", "examples"]
+# Framework examples import optional third-party packages that are not dev dependencies.
+exclude = ["examples/frameworks/"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
