@@ -40,7 +40,7 @@ def resolve_config(
     key = api_key or os.environ.get("WEBCITE_API_KEY", "")
     if not key.strip():
         raise AuthenticationError(
-            "No Webcite API key was provided.",
+            "Set WEBCITE_API_KEY or pass api_key= to authenticate.",
             code="missing_api_key",
             doc_url="https://webcite.co/api-docs/authentication",
             next_step=MISSING_KEY_STEP,

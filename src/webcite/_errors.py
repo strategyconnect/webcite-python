@@ -97,9 +97,7 @@ class IncompleteStreamError(WebciteError):
         self.events = events
 
 
-MISSING_KEY_STEP = (
-    f"Pass api_key=... or set WEBCITE_API_KEY. Create a key at {KEYS_PAGE} (sign-in required)."
-)
+MISSING_KEY_STEP = f"Create a key at {KEYS_PAGE} (sign-in required)."
 
 _STEPS: Dict[int, Tuple[Type[APIError], str, str, str]] = {
     401: (
