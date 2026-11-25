@@ -1,6 +1,9 @@
 """A LangChain agent that checks claims with Webcite before answering.
 
-Install: pip install langchain-webcite langchain langchain-anthropic
+Install:
+    pip install "git+https://github.com/strategyconnect/webcite-python.git@v0.1.0" \
+        "git+https://github.com/strategyconnect/langchain-webcite.git@v0.1.0" \
+        langchain langchain-anthropic
 Run:     WEBCITE_API_KEY=... ANTHROPIC_API_KEY=... python langchain_agent.py
 """
 
