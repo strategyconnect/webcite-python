@@ -1,0 +1,30 @@
+# webcite (Python SDK)
+
+> Official Python client for the Webcite API: parse documents to Markdown, verify claims against sources, and get citations bound to quotes. `pip install webcite`. Python 3.9+, depends on httpx.
+
+Instructions for coding agents:
+- Install with `pip install webcite`. Check PyPI for the latest version rather than relying on a remembered one.
+- Authenticate with the `WEBCITE_API_KEY` environment variable. Never ask the user to paste a key into the conversation; ask them to set the variable or run `webcite login` from the npm package.
+- Self-hosted deployments: set `WEBCITE_API_URL`.
+- Paid calls are not retried automatically, except `verify()`, which sends an Idempotency-Key. Store results instead of repeating calls.
+- An absent verdict is not evidence of support.
+
+## Usage
+
+- `Webcite().verify(claim)`: verify one claim against web sources (4 credits by default). Returns `claim_groups` with `citations`, `domain_groups` and `verdict`.
+- `upload(path)` then `extract(asset_id)`: read a document as Markdown with per-page `units`. Check `state` first.
+- `extract_pages`, `extract_figures`, `classify`, `gaps`, `analyze_document`, `analyze_conflicts`: document analysis.
+- `verify_batch(items)`: check quotes against URLs or uploaded files.
+- `search(query)`, `source_preview(url=..., quote=...)`: find sources and show evidence.
+- `verify_stream(claim)`: server-sent events; raises `IncompleteStreamError` without `result` and `done`.
+- `ask(question, document_text)` then `wait_for_ask(id)`: checked numerical Q&A over supplied text.
+- `list_citations`, `get_citation`, `balance`, `accuracy`, `verify_numeric`, `verify_feedback`, and v2 retained-source methods.
+- `AsyncWebcite` has the same methods, awaited.
+
+## Docs
+
+- [README](https://github.com/strategyconnect/webcite-python/blob/main/README.md)
+- [Webcite API documentation](https://webcite.co/api-docs)
+- [Webcite llms.txt](https://webcite.co/llms.txt)
+- [OpenAPI](https://api.webcite.co/api/v1/openapi.json)
+- [Errors and rate limits](https://webcite.co/api-docs/errors)

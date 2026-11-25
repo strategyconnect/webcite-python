@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "webcite"
+version = "0.1.0"
+description = "Parse documents to Markdown and verify claims against sources, with citations bound to quotes. Python SDK for the Webcite API."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "Webcite" }]
+keywords = [
+  "pdf-to-markdown", "document-parsing", "ocr", "rag", "claim-verification",
+  "fact-checking", "citations", "hallucination-detection", "grounding",
+  "source-search", "ai-agents", "mcp", "webcite",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Text Processing",
+  "Typing :: Typed",
+]
+dependencies = ["httpx>=0.25,<1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "mypy>=1.10", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://webcite.co/api-docs"
+Documentation = "https://webcite.co/api-docs"
+Repository = "https://github.com/strategyconnect/webcite-python"
+Changelog = "https://github.com/strategyconnect/webcite-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/webcite", "tests", "examples", "README.md", "CHANGELOG.md", "LICENSE", "llms.txt", "Makefile"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/webcite"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["UP006", "UP007", "UP035", "UP045"]
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+files = ["src/webcite", "tests", "examples"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
