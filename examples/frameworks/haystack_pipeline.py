@@ -1,6 +1,6 @@
 """Convert a PDF to Markdown, then check a claim from it, in one Haystack pipeline run.
 
-Install: pip install "git+https://github.com/strategyconnect/webcite-python.git@v0.1.0" "git+https://github.com/strategyconnect/webcite-haystack.git@v0.1.0"
+Install: pip install webcite-haystack
 Run:     WEBCITE_API_KEY=... python haystack_pipeline.py
 """
 

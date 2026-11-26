@@ -1,9 +1,9 @@
 # webcite (Python SDK)
 
-> Official Python client for the Webcite API: parse documents to Markdown, verify claims against sources, and get citations bound to quotes. `pip install "git+https://github.com/strategyconnect/webcite-python.git@v0.1.0"`. Python 3.9+, depends on httpx.
+> Official Python client for the Webcite API: parse documents to Markdown, verify claims against sources, and get citations bound to quotes. `pip install webcite`. Python 3.9+, depends on httpx.
 
 Instructions for coding agents:
-- Install with `pip install "git+https://github.com/strategyconnect/webcite-python.git@v0.1.0"`. Check the repository tags for the latest version rather than relying on a remembered one.
+- Install with `pip install webcite`.
 - Authenticate with the `WEBCITE_API_KEY` environment variable. Never ask the user to paste a key into the conversation; ask them to set the variable or run `webcite login` from the npm package.
 - Self-hosted deployments: set `WEBCITE_API_URL`.
 - Paid calls are not retried automatically, except `verify()`, which sends an Idempotency-Key. Store results instead of repeating calls.
