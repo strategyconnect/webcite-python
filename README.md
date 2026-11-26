@@ -7,9 +7,8 @@ contradict them. On ParseBench 2, Webcite extraction scored 91.74 overall (ranki
 approval by LlamaIndex). This package is the official Python client for the
 [Webcite API](https://webcite.co/api-docs).
 
-<!-- Switch back to "pip install webcite" once it is published on PyPI. -->
 ```bash
-pip install "git+https://github.com/strategyconnect/webcite-python.git@v0.1.0"
+pip install webcite
 ```
 
 Python 3.9 or newer. The only dependency is `httpx`.
